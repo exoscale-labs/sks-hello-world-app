@@ -1,0 +1,34 @@
+name: Build and Push Docker Container
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DOCKER_USERNAME: ${{ github.actor }}
+  IMAGE_NAME: exo-webtest
+  REGISTRY: ghcr.io
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Login to GHCR
+      uses: docker/login-action@v1
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ env.DOCKER_USERNAME }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Build Docker image
+      run: |
+        docker build -t ${{ env.REGISTRY }}/${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .
+        
+    - name: Push Docker image to GHCR
+      run: |
+        docker push ${{ env.REGISTRY }}/${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
