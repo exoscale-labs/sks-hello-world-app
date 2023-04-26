@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: exo-webtest
+  IMAGE_NAME: exoscale-labs/exo-webtest
 
 jobs:
   build-and-push-image:
