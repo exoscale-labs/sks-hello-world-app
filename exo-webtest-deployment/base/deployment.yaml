@@ -15,5 +15,5 @@ spec:
         app: exo-webtest
     spec:
       containers:
-      - image: ghcr.io/exoscale-labs/exo-webtest
+      - image: exo.container-registry.com/exoscale-images/exo-webtest
         name: exo-webtest

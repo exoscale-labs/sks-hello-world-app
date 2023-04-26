@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: exo-webtest
-        image: ghcr.io/exoscale-labs/exo-webtest:dev
+        image: exo.container-registry.com/exoscale-images/exo-webtest:dev
