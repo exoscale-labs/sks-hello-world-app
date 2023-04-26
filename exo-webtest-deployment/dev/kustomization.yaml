@@ -9,5 +9,5 @@ resources:
 - namespace.yaml
 
 patchesStrategicMerge:
-- namespace.yaml
 - version.yaml
+- replicas.yaml
