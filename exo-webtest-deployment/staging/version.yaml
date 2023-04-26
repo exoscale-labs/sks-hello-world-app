@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: exo-webtest
-        image: docker pull ghcr.io/exoscale-labs/exo-webtest:v1
+        image: ghcr.io/exoscale-labs/exo-webtest:v1
