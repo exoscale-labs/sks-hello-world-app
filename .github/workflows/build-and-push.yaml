@@ -26,10 +26,6 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME  }}
           password: ${{ secrets.REGISTRY_TOKEN }}
 
-      - name: Extract branch name
-        id: branch_name
-        run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
-
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
@@ -37,7 +33,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=ref,event=branch
-            type=sha,prefix=branch-${{ steps.branch_name.outputs.branch }},format=slug
+            type=sha
 
 
       - name: Build and push Docker image
