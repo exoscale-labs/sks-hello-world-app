@@ -8,7 +8,7 @@ app.get('/', function (req, res) {
     "<body>" +
     "<img width=250px src=https://www.exoscale.com/static/img/exoscale-logo-full-201711.svg alt=ExoscaleLogo><br>" +
     "<p>Hello World from host " + os.hostname() + "!</p>" +
-    "</body></html>"
+    "Hello from A1 training</body></html>"
   res.send(body)
 })
 
